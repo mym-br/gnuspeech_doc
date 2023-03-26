@@ -1,0 +1,312 @@
+<!-- X-URL: http://www.gnu.org/software/gnuspeech/gnuspeech.html -->
+<!-- <BASE HREF="http://www.gnu.org/software/gnuspeech/gnuspeech.html"> -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Gnuspeech - GNU Project - Free Software Foundation (FSF)</TITLE>
+<LINK REV="made" HREF="mailto:webmasters@www.gnu.org">
+<META NAME="keywords" CONTENT="gnuspeech articulatory speech synthesis tube model distinctive region formant sensitivity">
+<meta http-equiv="content-type" content='text/html; charset=us-ascii'>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#1F00FF" ALINK="#FF0000" VLINK="#9900DD">
+
+
+<A HREF="/home.html"><IMG SRC="/graphics/gnu-head-sm.jpg"
+   ALT=" [image of the Head of a GNU] "
+   WIDTH="129" HEIGHT="122"></A>
+
+<P>
+
+
+<H1><A NAME="TOC"><I>gnuspeech</I></A></H1>
+
+<OL>
+  <LI><A NAME="TOCWhatis" HREF="#Whatis">What is <I>gnuspeech</I></A>
+  <LI><A NAME="TOCGoal" HREF="#Goal">What is the goal of the <I>gnuspeech</I> project?</A>
+
+  <LI><A NAME="TOCReleases" HREF="#Releases">Releases?</A>
+    <UL>
+      <LI><A NAME="TOCDevelopment" HREF="#Development">
+	   Development & &#147;Coming Soon&#148;</A>
+<!--      <LI><A NAME="TOCStable" HREF="#Stable">Current Stable Release</A>
+      <LI><A NAME="TOCHistory" HREF="#History">Release History</A>
+-->
+    </UL>
+<!--
+  <LI><A NAME="TOCPlatforms" HREF="#Platforms">Supported Platforms</A>
+-->
+
+  <LI><A NAME="TOCWhy" HREF="#Why">Why is it called gnuspeech?</A>
+
+
+  <LI><A NAME="TOCHelp" HREF="#Help">Getting help with gnuspeech</A>
+    <UL>
+      <LI><A NAME="TOCManuals" HREF="#Manuals">Manuals</A>
+
+<!--      <LI><A NAME="TOCFAQ" HREF="#HelpFAQ">FAQ</A>
+      <LI><A NAME="TOCHelpMailing" HREF="#HelpMailing">Mailing Lists</A>
+      <LI><A NAME="TOCHelpUsenet" HREF="#HelpUsenet">Usenet</A>
+-->
+    </UL>
+
+  <LI><A NAME="TOCFindingPackages" HREF="#FindingPackages">Finding
+  additional packages for <I>gnuspeech</I></A>
+
+  <LI><A NAME="TOCFurther" HREF="#Further">Further information</A>
+
+  <LI><A NAME="TOCYouHelp" HREF="#YouHelp">
+      If you want to help with <I>gnuspeech</I></A>
+  <LI><A NAME="TOCCredits" HREF="#Credits">
+      Those who have helped research, develop and port <I>gnuspeech</I></A>
+
+</OL>
+
+<BR>
+
+<HR>
+
+<H2><A NAME="Whatis" HREF="#TOCWhatis">What is <I>gnuspeech</I>?</A></H2>
+
+<P>
+<B>gnuspeech</B> makes it easy to produce high quality computer speech output, design new language databases, and create controlled speech stimuli for psychophysical experiments. gnuspeechsa is a cross-platform module of gnuspeech that allows command line, or application-based speech output. The software has been released as two tarballs that are available in the project Downloads area of <A HREF="https://savannah.gnu.org/projects/gnuspeech" TARGET="gnu2">https://savannah.gnu.org/projects/gnuspeech</A>. Those wishing to contribute to the project will find the OS X (gnuspeech) and CMAKE (gnuspeechsa) sources in the Git repository on that same page. The gnuspeech suite still lacks some of the database editing components (see the Overview diagram below) but is otherwise complete and working, allowing articulatory speech synthesis of English, with control of intonation and tempo, and the ability to view the parameter tracks and intonation contours generated. The intonation contours may be edited in various ways, as described in the Monet manual. Monet provides interactive access to the synthesis controls. TRAcT provides interactive access to the underlying tube resonance model that converts the parameters into sound by emulating the human vocal tract.
+</P>
+
+<P>
+The suite of programs uses a true articulatory model of the vocal tract and incorporates models of English rhythm and intonation based on extensive research that sets a new standard for synthetic speech.
+</P>
+
+<P>
+The original <I>NeXT</I> computer implementation is complete, and is available from the <I>NeXT</I> branch of the SVN repository linked above.
+
+The port to GNU/Linux under GNUStep, also in the SVN repository under the appropriate branch, provides English text-to-speech capability, but parts of the database creation tools are still in the process of being ported.
+</P>
+
+<P>
+Credits for research and implementation of the <I>gnuspeech</I> system appear the section
+<A HREF="#Credits">Thanks to those who have helped</A> below. Some of the features of <I>gnuspeech</I>, with the tools that are part of the software suite, tools include:
+
+<UL>
+
+  <LI><I>A Tube Resonance Model</I> (<I>TRM</I>) for the human vocal tract (also known as a transmission-line analog, or a waveguide model) that truly represents the physical properties of the tract, including the energy balance between the nasal and oral cavities as well as the radiation impedance at lips and nose.
+
+    <LI>A <I>TRM Control Model</I>, based on formant sensitivity analysis, that provides a simple, but accurate method of low-level articulatory control. By using the <I>Distinctive Region Model</I> (<I>DRM</I>) only eight slowly varying tube section radii need be specified. The glottal (vocal fold) waveform and various suitably &#8220;coloured&#8221; random noise signals may be injected at appropriate places to provide voicing, aspiration, frication and noise bursts.
+
+   <LI><I>Databases</I> which specify: the characteristics of the  articulatory postures (which loosely correspond to <I>phonemes</I>); rules for combinations of postures; and information about voicing, frication and aspiration. These are the data required to produce specific spoken  languages from an augmented phonetic input.  Currently, only the database for the English language exists, though French vowel postures are also included.
+
+   <LI>A text-to-augmented-phonetics conversion module (the <I>Parser</I>) to convert arbitrary text, preferably incorporating normal punctuation, into the form required for applying the synthesis methods.
+
+ <LI><I>Models of English rhythm and intonation</I> based on extensive researchthat are automatically applied.
+
+ <LI><I>&#147;Monet&#148</I>&#8212;a database creation and editing system, with a carefully designed graphical user interface (GUI) that allows the databases containing the necessary phonetic data and dynamic rules to be set up and modified in order that the computer can &#8220;speak&#8221; arbitrary languages.
+
+  <LI>A 70,000+ word English <I>Pronouncing Dictionary</I> with rules for derivatives such as plurals, and adverbs, and including 6000 given names. The dictionary also provides part-of-speech information to faciltate later addition of grammatical parsing that can further improve the excellent pronunciation, rhythm and intonation .
+
+  <LI><I>Sub-dictionaries</I> that allow different user- or application-specific pronunciations to be substituted for the default pronunciations coming from the main dictionary (not yet ported).
+
+  <LI><I>Letter-to-sound rules</I> to deal with words that are not in the dictionaries
+
+  <LI>A <I>parser</I> to organise the input and deal with dates, numbers, abbreviations, etc.
+
+  <LI><I>Tools</I> for managing the dictionary and carrying out analysis of speech.
+
+  <LI><I>&#147;Synthesizer&#148;</I>&#8212;a GUI-based application to allow experimentation with a stand-alone <I>TRM</I>.  All parameters, both static and dynamic, may be varied and the output can be monitored and analysed.  It is an important component in the research needed to create the databases for target languages.
+
+
+
+</UL>
+
+<A NAME="diagram">
+<CENTER>
+
+<!--
+<IMG SRC="http://savannah.gnu.org/cgi-bin/viewcvs/*checkout*/software/gnuspeech/tts-block-diagram.png?rev=HEAD&cvsroot=www.gnu.org&content-type=image/jpeg">
+
+
+<IMG SRC="http://www.gnu.org/software/gnuspeech/tts-block-diagram.png"/>
+-->
+
+<IMG SRC="./tts-block-diagram.png" WIDTH="800" HEIGHT="364"/>
+
+<BR>
+<BR>
+<H2>
+Overview of the main Articulatory Speech Synthesis System
+<H2>
+
+</CENTER>
+
+<H2><A NAME="Why" HREF="#TOCWhy">Why is it called <I>gnuspeech</I>?</A></H2>
+
+<P>
+It is a play on words.  This is a new (g-nu) &#8220;event-based&#8221; approach to speech synthesis from text, that uses an accurate articulatory model rather than a formant-based approximation.  It is also a GNU project, aimed at providing high quality text-to-speech output for GNU/Linux, Mac OS X, and other platforms. In addition, it provides comprehensive tools for psychophysical and linguistic experiments as well as for creating the databases for arbitrary languages.
+</P>
+
+<H2><A NAME="Goal" HREF="#TOCGoal">What is the goal of the <I>gnuspeech</I> project?</A></H2>
+<P>
+The goal of the project is to create the best speech synthesis software on the planet.
+</P>
+
+<H2><A NAME="Releases" HREF="#TOCReleases">Releases</A></H2>
+<P>
+
+The first official release has now been made, as of October 14th 2015. Additional material is available for GNUStep, Mac OS X and NeXT (NeXTSTEP 3.0), for anonymous download from the <A HREF="https://savannah.gnu.org/projects/gnuspeech" TARGET="gnu2">project SVN repository</A> (https://savannah.gnu.org/projects/gnuspeech). All provide text-to-speech capability. For GNUStep and OS X the database creation and inspection tools (such as <I>TRAcT</I>) can be used as intended, but work remains to be done to complete the database creation components of <I>Monet</I> that are needed for psychophysical/linguistic experiments, and for setting up new languages. The most recent SVN Repository material has now been migrated to a Git Repository on the savannah site whilst still keeping the older material on ther SVN repository. These repositories also provide the source for project members who continue to work on development. New members are welcome.
+</P>
+
+<H2><A NAME="Development" HREF="#TOCDevelopment">
+           Development & &#8220;Coming Soon&#8221;</A></H2>
+<P>
+It would be be a good idea for those interested in the work to join the mailing lis, to provide some feedback, ask questions, work on the project, and so on.
+</P>
+
+<P>
+Helpers and users can join the project mailing list by visiting<A HREF="https://lists.gnu.org/mailman/listinfo/gnuspeech-contact" TARGET="gnu3"> the subscription page</A> (https://lists.gnu.org/mailman/listinfo/gnuspeech-contact), and send mail to the group. Offers of help receive special attention! :-)
+</P>
+
+<H2><A NAME="Project State" HREF="#TOCState">A brief technical history of <I>gnuspeech</I>, incorporating the current state</A></H2>
+
+<P>
+The full project <A HREF="/software/gnuspeech/project-history.html">implementation history</A> is described in a separate page (https://www.gnu.org/software/gnuspeech/project-history.html) to avoid overloading this one.
+</P>
+
+<P>
+In summary, much of the core software has been ported to the Mac under OS/X, and GNU/Linux under GNUStep. All current sources and builds are currently in the Git repository, though older material, including the Gnu/Linux/GNUStep and NeXT implementations are only in the SVN repository. Speech may be produced from input text. The development facilities for managing and creating new language databases, or modifying the existing English database for text-to-speech are incomplete, but mainly require only the file-writing components. The <I>Monet</I> provides the tools needed for psychophysical and linguistic experiments. <I>TRAcT</I> provides direct access to the tube model.
+</P>
+
+<H2><A NAME="Obtaining" HREF="#TOCObtaining">Obtaining gnuspeech</A></H2>
+
+<P>
+<I>gnuspeec</I>h is currently fully available as a NextSTEP 3.x version in the SVN repository along with the Gnu/Linux/GNUStep version, which is incomplete though functional. Passwords for the original NeXT version (user and developer) are available in the &#8220;private&#8221; file in the <I>NeXT</I> branch. Tarballs for the initial release versions of gnuspeech and gnuspeechsa are available from the Downloads area of <A HREF="https://savannah.gnu.org/projects/gnuspeech" TARGET="gnu2">the savannah project page</A> (https://savannah.gnu.org/projects/gnuspeech).
+</P>
+
+<P>
+The original <I>NeXT</I> User and Developer Kits are complete, but do not run under OS X or under GNUStep on GNU/Linux. They also suffer from the limitations of a slow machine, so that shorter <I>TRM</I> lengths (< ~15 cm) cannot be used in real time, though the software synthesis option allows this restriction to be avoided. Any password can be selected to activate the <I>NeXT</I> kits from the file  &#8220;nextstep / trunk / priv / SerialNumbers&#8221; and choosing a password such as &#8220;bb976d4a&#8221; for User 26 or &#8220;ebe22748&#8221; for Dev 15 from the very large selection provided. In fact, you can use these passwords. But you need a <I>NeXT</I> computer, of course&#8212;try <A HREF="https://www.blackholeinc.com">Black Hole, Inc.</A> (https://www.blackholeinc.com) if you'd like one.
+</P>
+
+<H2><A NAME="Help" HREF="#TOCHelp">Getting Help with gnuspeech</A></H2>
+
+<P>
+Developers should contact the authors/developers through the <A HREF="https://savannah.gnu.org/projects/gnuspeech" TARGET="gnu2">gnu project facilities</A> (https://savannah.gnu.org/projects/gnuspeech).  To join the project mailing list, you can go directly to<A HREF="https://lists.gnu.org/mailman/listinfo/gnuspeech-contact" TARGET="gnu3"> the subscription page.</A> (https://lists.gnu.org/mailman/listinfo/gnuspeech-contact).  Papers and manuals are available on-line (see below).
+</P>
+
+
+<H2><A NAME="Manuals" HREF="#TOCManuals">Manuals and papers</A></H2></B>
+
+<P>
+A number of papers and manuals relevant to gnuspeech exist:
+</P>
+
+<UL>
+  <LI>The manuals for <I>Monet</I> and <I>TRAcT</I> are included in the gnuspeech tarball for downloading the first release.
+
+  <LI><A HREF="https://www.cpsc.ucalgary.ca/~hill/papers/avios95/index.htm" TARGET="new3">A paper presented at the American Voice I/O Society conference</A> in 1995</A> provides a reasonably detailed explanation of the theory underlying the tube resonance model.
+
+  <LI><A HREF="https://www.cpsc.ucalgary.ca/~hill/papers/conc/index.htm" TARGET="new4">A heavily cross-referenced &#147;conceptionary&#148;</A> is available to provide access to some of the background terms and research in the relevant scientific fields.
+
+    <LI><A HREF="https://www.cpsc.ucalgary.ca/~hill/papers/pronguid.htm" TARGET="new5">A guide to the pronunication notation used in the text-to-speech work</A> showing the relationship between standard forms (IPA, Websters) and the ASCII-friendly form used in gnuspeech, with examples of actual pronunciations. This is also included in the new manual.
+
+    <LI><A HREF="./trm-write-up.pdf" TARGET="new6">The Tube Resonance Model</A> a write-up of the waveguide model of the acoustic tubes that form the underlying model of the human vocal apparatus.
+
+    <LI><A HREF="https://pages.cpsc.ucalgary.ca/~hill/gnuspeech/gnuspeech-index.htm" TARGET="new7" >Additional material, including sound files</A> and a manual for the original <I>NeXT</I> version of <I>Monet</I>, is also available on Professor Hill's university web site.
+
+  <LI><A HREF="https://pages.cpsc.ucalgary.ca/~hill/papers/index.htm" TARGET="new8"> Papers</A> related to the research that has led to <I>gnuspeech</I> are also collected on Professor Hill's university web site. These include the development of the &#8220;event-based&#8221; approach to speech synthesis, which is also applicable to speech recognition.
+</UL>
+<P>
+Some examples of the papers by other researchers that helped us in developing <I>gnuspeech</I> include:
+
+<UL>
+
+  <LI>Carr&#233;, R. and Mrayati, M. (1992) Distinctive regions in acoustic tubes. Speech production modelling. <I>J. Acoustique</I> <B>5</B>, 141-151
+  <LI>Fant, G. & Pauli, S. (1974) Spatial characteristics of vocal tract resonance models. <I>Proc. Stockholm Speech Communication Seminar</I>, KTH, Stockholm, Sweden.
+  <LI>Smith, J.O. (1992) Physical modelling using digital waveguides. <I>Computer Music Journal</I>, <B>16</B> (4) 74-91
+  <LI>Cook, P.R. (1989) Synthesis of the singing voice using a physically parameterised model of the human vocal tract. <I>International Computer Music Conference</I>, Columbus, Ohio.
+  <LI>Liberman, A.M., Ingemann, F., Lisker, L., Delattre, P. & Cooper, F.S. (1959) Minimal rules for synthesising speech. <I>J. Acoust. Soc. Amer.</I> <B>31</B> (11), 1490-1499, Nov
+  <LI>&#8217;t Hart, J. & Cohen, A. (1973). Intonation by rule: a perceptual quest. <I>Journal of Phonetics</I>,
+1 (4), 309-327.
+  <LI>Wells, J.C. (1963) A study of the formants of the pure vowels of British English, <I>Progress report for July</I>, University College, London.
+
+</UL>
+<P>
+but there are far too many to list them all. Further papers may be found in the citations incorporated in the relevant papers noted above and/or listed on David Hill's <A HREF="https://pages.cpsc.ucalgary.ca/~hill" TARGET="papers">university web site</A> (https://pages.cpsc.ucalgary.ca/~hill).
+</P>
+
+
+<H2><A NAME="Further" HREF="#TOCFurther">Further information?</A></H2>
+
+<P>
+See the section on <A HREF=#Manuals>Manuals and papers</A>
+</P>
+
+
+<H2><A NAME="YouHelp" HREF="#TOCYouHelp">How to help with gnuspeech</A></H2>
+<P>
+
+To contact the maintainers of gnuspeech, to report a bug, or to
+contribute fixes or improvements, to join the development team, or to join the <I>gnuspeech</I> mailing list, please visit<A HREF="https://savannah.gnu.org/projects/gnuspeech" TARGET="gnu4"> the <I>gnuspeech</I> project page</A> (https://savannah.gnu.org/projects/gnuspeech) and use the facilities provided. The mailing list can be accessed under the section &#8220;Communication Tools&#8221;. To help with the project work you can also contact <A HREF="mailto:hilld@ucalgary.ca">Professor David Hill</A> (hilld-at-ucalgary-dot-ca) directly.
+<P>
+
+<H2><A NAME="Credits" HREF="#TOCCredits">Thanks to those who have helped</A></H2>
+
+<P>
+The research that provides the foundation of the system was carried out in research departments in France, Sweden, Poland, and Canada and is ongoing. The original system was commercialised by a now-liquidated University of Calgary spin-off company&#8212;<I>Trillium Sound Research Inc</I>. All the software has subsequently been donated by its creators to the <I>Free Software Foundation</I> forming the basis of the GNU Project <I>gnuspeech</I>. It is freely available under a General Public Licence, as described herein.
+</P>
+<P>
+Many people have contributed to the work, either directly on the project, or indirectly through relevant research. The latter appear in the citations to the papers referenced above. Of particular note are Perry Cook & Julius Smith (Center for Computer Research in Music and Acoustics) for the waveguide model and the DSP Music Kit), Ren&#233; Carr&#233; (at the Département Signal, &#201;cole Nationale Sup&#233;rieure des T&#233;l&#233;communications in Paris). Carr&#233;&#8217;s work was, in turn, based on work on formant sensitivity analysis by Gunnar Fant and his colleagues at the Speech Rechnology Lab of the Royal Institute of Technology in Stockholm, Sweden. The original <I>gnuspeech</I> system was created over several years from 1990 to 1995 by the University of Calgary technology-transfer spin-off company <I>Trillium Sound Research Inc.</I> founded by David Hill, Leonard Manzara and Craig Schock at Leonard's suggestion. The work then and since was mainly performed by the following:
+<UL>
+  	<LI>David Hill designed the event-based approach to speech synthesis and supplied the basic knowledge of speech, gleaned from many years working in the field at places like Edinburgh University Department of Phonetics and Linguistics and visiting major research centres around the western world.  He compiled the pronunciation dictionary, following initial work by Adam Rostis, ported  <I>Synthesizer</I> to Mac OS X, and ran the project.
+  <LI>Walter Lawrence the inventor of the Parametric Artifical Talker (PAT)&#8212;the first complete formant based speech synthesiser provided hardware for the initial research.
+  <LI>Elizabeth Uldall of the Edinburgh University Department of Phonetics and Linguistics introdcued David Hill to speech synthesis and PAT during several visits.
+  <LI>Miroslav Preucil of the Czech Technical University, Prague, Czechoslovakia, worked with David Hill on an improved PAT used in the early work on formant-based speech synthesis by rules.
+  <LI>Wiktor Jassem of the Polish Instytut Podstawowych Problem&#243;w Techniki, Ian Witten at Essex University and Neal Reid, and university of Calgary student worked with David Hill on the basic research needed to understand how to create reasonably natural rhythm and intonation the rhythm and intonation.
+  <LI>Julius Smith and Perry Cook at the Center for Computer Research on Music and Acoustics whose work and correspondence helped Leonard Manzara develop the Tube Resonance Model (see below).
+  <LI>Ren&#233; Carr&#233; who developed the <I>Distinctive Region Model</I> used as a basis for the <I>TRM Control Model</I> which, in turn, was basd on research into formant sensitivity analysis by Gunnar Fant and his colleagues at the Royal Institute of Technology (KTH) in Stockholm, Sweden.
+    <LI> Craig Schock designed and developed the database editor <I>Monet</I> used to create the databases needed to re-implement David Hill's “event-based” approach to speech synthesis in the new <I>gnuspeech</I> system.  He created dictionary creation tools.  He wrote <I>WhosOnFirst</I>, the "say" command line tool, the <I>Speech Manager</I>,... and was the project software rchitect.
+  <LI> Leonard Manzara wrote the "C" implementation of the tube model that forms the acoustic core of the synthesis system, and then re-implemented it on the DSP56000 to make it run in real time. Increased processor speeds have rendered the DSP implementation unnecessary.  He created the original <I>Synthesizer</I> app for the Next (the port has been renamed <I>TRAcT</I>).  He wrote <I>BigMouth</I> to add speech as a service.
+  <LI> Vince Demarco and David Marwood wrote the original PrEditor.
+  <LI> Eric Zoerner did an initial but incomplete port of <I>PrEditor</I> to Mac OS X.
+  <LI> Michael Forbes refactored <I>PrEditor</I>
+  <LI> The Savannah hackers set up the original GNU project files, including the CVS repository, now migrated to the SVN repository.
+  <LI> Adam Fedor and Greg Casamento worked through the original <I>NeXTSTEP</I> source code to bring it to OpenStep standards which was a huge help to get the port started.
+  <LI> Steven Nygard provided the major effort needed to port the original NeXTSTEP version of <I>Monet</I> and related items to Mac OS X, adding to the original CVS repository material in the process.
+  <LI> Dalmazio Brisinda took over from Steven and extended the Mac OS X port of <I>gnuspeech</I> modules, including integrating the parser and migrating all the material to the current SVN repository, reorganizing it to make it easier to manage and access in the process.
+  <LI> Marcelo Matuda worked with Dalmazio to produce the first port to GNU/Linux, provided much helpful advice <I>GNUStep</I>, and also developed <I>gnuspeechsa</I>.
+  <LI> Steve Nygard took over from Dalmazio Brisinda and spent yet more time developing the gnuspeech components to releasable form, and ensuring that the project was migrated to a Git repository.
+</UL>
+<P>
+Thanks guys! Dalmazio, Steve and Marcelo deserve a special measure of thanks for their most recent volunteer work.
+</P>
+
+<HR>
+<P>
+Return to <A HREF="/home.html">GNU's home page</A>.
+</P>
+<P>
+Please send FSF &amp; GNU inquiries &amp; questions to
+</P>
+<P>
+<A HREF="mailto:gnu@gnu.org"><EM>gnu@gnu.org</EM></A>.
+</P>
+
+
+<P>
+
+David Hill is responsible for writing this <I>gnuspeech</I> page. Thanks to Steve Nygard for his helpful criticisms
+</P>
+
+<P>
+Copyright (C) 2012, 2015 David R. Hill,
+</P>
+<P>
+Verbatim copying and distribution of this article <I>in its entirety</I> or in part is
+permitted in any medium, provided this copyright notice is preserved and the source made clear.
+
+</P><P>
+
+<HR>
+  <P>
+Page originally created in the mists of time (2004?)
+</P>
+  
+<address></address>
+<!-- hhmts start -->Last modified: Sun Oct 18 22:21:00 PDT 2015 <!-- hhmts end -->
+</body> </html>
